@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PeminjamanBuku;
-use App\Models\KeteranganPeminjaman;
+use App\Models\anggota;
+use App\Models\buku;
 
 class PeminjamanController extends Controller
 {
@@ -15,6 +16,12 @@ class PeminjamanController extends Controller
         return view('peminjaman.index', compact('peminjaman'));
     }
 
+    public function create(){
+        return view('peminjaman.create',[
+            'bukus'=>buku::orderBy('judul', 'ASC')->get(),
+            'anggotas'=>anggota::orderBy('nama', 'ASC')->get(),
+        ]);
+    }
     // Menyimpan data peminjaman buku baru
     public function store(Request $request)
     {

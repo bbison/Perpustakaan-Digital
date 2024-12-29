@@ -59,3 +59,4 @@ Route::resource('/kelas',kelasController::class);
 Route::resource('/kategory-buku',kategoryBukuController::class);
 Route::resource('/buku',bukuController::class);
 Route::get('/file',[anggotaController::class,'getFile']);
+Route::resource('/peminjaman',peminjamanController::class);
